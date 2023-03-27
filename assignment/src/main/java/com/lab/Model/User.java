@@ -18,4 +18,5 @@ private String password;
 private String firstname;
     @Column(length = 45,nullable = false,name = "last_name")
 private String lastname;
+    private boolean enabled;
 }

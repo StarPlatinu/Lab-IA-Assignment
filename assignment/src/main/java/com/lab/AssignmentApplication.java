@@ -16,11 +16,22 @@ import java.util.List;
 @SpringBootApplication
 @Controller
 public class AssignmentApplication {
-	@RequestMapping("/assessment")
+	@RequestMapping("/index")
 	public String index() {
-		System.out.println("Main Controller");
-		System.out.println("Main Controller");
 		return "index";
+	}
+
+	@GetMapping("/login")
+	public String login(){
+		return "login";
+	}
+
+	@GetMapping("/register")
+	public String showRegistrationForm(Model model){
+		// create model object to store form data
+		User user = new User();
+		model.addAttribute("user", user);
+		return "register";
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(AssignmentApplication.class, args);

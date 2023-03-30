@@ -11,10 +11,6 @@
           crossorigin="anonymous">
 </head>
 <body>
-<div align="center" class="container-fluid text-center">
-    <h1>Welcome To Student Manager</h1>
-  <a class="h2" th:href="@{/users}">Student Manager</a>
-</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" th:href="@{/index}">Student Manager</a>
@@ -23,17 +19,29 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>
-                </li>
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>-->
+                <!--                </li>-->
             </ul>
         </div>
     </div>
 </nav>
+<div align="center" class="container-fluid text-center">
+    <h1>Welcome To Student Manager</h1>
+  <a class="h2" th:href="@{/users}">Student Manager</a>
+</div>
+
+<hr>
+
 <br /><br />
 <div class="container">
-    <div class="row col-md-10">
-        <h2>List of Registered Users</h2>
+    <div class="row d-flex">
+        <div class="col-md-4">
+     Part 1
+        </div>
+        <div class="col-md-8">
+    Part 2
+        </div>
     </div>
 
 </div>

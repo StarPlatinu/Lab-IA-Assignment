@@ -97,7 +97,7 @@ public class UserController {
 
     private Role checkRoleExist(){
         Role role = new Role();
-        role.setName("ROLE_ADMIN");
+        role.setName("ADMIN");
         return roleRepository.save(role);
     }
 }

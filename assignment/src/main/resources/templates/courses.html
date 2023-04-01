@@ -41,12 +41,12 @@
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">Courses ID: </label>
           <div class="col-sm-8">
-            <input type="text" th:field="*{courseId}" class="form-control"  required maxlength="20"/>
+            <input type="text" th:field="*{id}" class="form-control"  required maxlength="20"/>
           </div>
         </div>
         <select th:field="*{curriculum}" class="form-control" id="dropDownList">
           <option value="0">select option</option>
-          <option th:each="curriculum : ${curriculumList}" th:field="*{curriculum}" th:value="${curriculum.curriculumId}" th:text="${curriculum.curriculumId} + ${curriculum.name}"></option>
+          <option th:each="curriculum : ${curriculumList}" th:field="*{curriculum}" th:value="${curriculum.id}" th:text="${curriculum.id} + ${curriculum.name}"></option>
         </select>
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">Description: </label>
@@ -82,8 +82,8 @@
     <tbody>
     <th:block th:each="course : ${courseList}">
       <tr>
-        <td>[[${course.courseId}]]</td>
-        <td>[[${course.curriculum.curriculumId}]]</td>
+        <td>[[${course.id}]]</td>
+        <td>[[${course.curriculum.id}]]</td>
         <td>[[${course.description}]]</td>
         <td>[[${course.credit}]]</td>
       </tr>

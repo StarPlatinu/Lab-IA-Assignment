@@ -47,15 +47,15 @@
                         <select class="form-control" id="dropDownList" th:field="*{major}">
                             <option disabled value="0">-- Select major --</option>
                             <option th:each="major : ${listMajor}" th:field="*{major}"
-                                    th:text="|${major.majorId} - ${major.majorName}|"
-                                    th:value="${major.majorId}"></option>
+                                    th:text="|${major.id}|"
+                                    th:value="${major.id}"></option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label text-right">Curriculum ID: </label>
                     <div class="col-sm-8">
-                        <input class="form-control" maxlength="20" required th:field="*{curriculumId}" type="text"/>
+                        <input class="form-control" maxlength="20" required th:field="*{id}" type="text"/>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -76,16 +76,16 @@
     <table class="table table-bordered">
         <thead class="thead-dark">
         <tr>
-            <th>ID</th>
-            <th>Major Name</th>
             <th>Curriculum ID</th>
+            <th>Major</th>
+            <th>Curriculum Name</th>
         </tr>
         </thead>
         <tbody>
         <th:block th:each="curriculum : ${list}">
             <tr>
-                <td>[[${curriculum.curriculumId}]]</td>
-                <td>[[${curriculum.major.majorName}]]</td>
+                <td>[[${curriculum.id}]]</td>
+                <td>[[${curriculum.major.id}]]</td>
                 <td>[[${curriculum.name}]]</td>
 
             </tr>

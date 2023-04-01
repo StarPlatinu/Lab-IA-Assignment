@@ -14,5 +14,6 @@ public class Major {
     @Column(name = "major_id", length = 2)
     private String id;
 
+    @Column
     private String name;
 }

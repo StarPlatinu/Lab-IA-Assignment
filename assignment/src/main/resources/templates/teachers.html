@@ -41,7 +41,7 @@
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">Teacher ID: </label>
           <div class="col-sm-8">
-            <input type="text" th:field="*{teacherId}" class="form-control"  required maxlength="20"/>
+            <input type="text" th:field="*{id}" class="form-control"  required maxlength="20"/>
           </div>
         </div>
         <div class="form-group row">
@@ -105,7 +105,7 @@
     <tbody>
     <th:block th:each="teacher : ${list}">
       <tr>
-        <td>[[${teacher.teacherId}]]</td>
+        <td>[[${teacher.id}]]</td>
         <td>[[${teacher.name}]]</td>
         <td>[[${teacher.email}]]</td>
         <td>[[${teacher.phone}]]</td>

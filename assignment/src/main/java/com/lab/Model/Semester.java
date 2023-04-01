@@ -17,9 +17,9 @@ public class Semester {
     @Column(name = "semester_id",length = 10)
     private String semesterId;
     @Column(name = "start_date")
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "YYYY-MM-DD")
     private LocalDate start;
     @Column(name = "end_date")
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "YYYY-MM-DD")
     private   LocalDate end;
 }

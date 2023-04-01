@@ -25,7 +25,7 @@ public class Student {
     @Column
     private String address;
     @Column
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "YYYY-MM-DD")
     private   LocalDate birthdate;
     @Column(name = "pucture_url")
     private String pictureUrl;

@@ -37,7 +37,7 @@ public class CourseController {
     @PostMapping("/courses/save")
     public String saveUser(Course c, RedirectAttributes ra){
         courseService.save(c);
-        ra.addFlashAttribute("message","The course has been saved successfully.");
+        ra.addFlashAttribute("message","The curriculum has been saved successfully.");
         return "redirect:/courses";
     }
 }

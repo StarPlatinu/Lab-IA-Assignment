@@ -12,7 +12,7 @@ public class SemesterService {
     @Autowired
     private SemesterRepository semesterRepository;
 
-    public List<Semester> getAllSemesters(){
+    public List<Semester> getAllSemester(){
         return (List<Semester>) semesterRepository.findAll();
     }
 

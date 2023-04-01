@@ -20,20 +20,20 @@ import java.util.List;
 @Configurable
 public class SemesterController {
     @Autowired
-    private SemesterService semesterService;
+    private SemesterService service;
 
     @GetMapping("/semesters")
-    public String showSemesterList(Model model){
-        List<Semester> semesterList = semesterService.getAllSemesters();
+    public String showUserList(Model model){
+        List<Semester> semesterList = service.getAllSemester();
         Semester s = new Semester();
         model.addAttribute("semester", s);
-        model.addAttribute("semesterList",semesterList);
+        model.addAttribute("list",semesterList);
         return "semesters";
     }
 
     @PostMapping("/semesters/save")
-    public String saveSemester(Semester s, RedirectAttributes ra){
-        semesterService.save(s);
+    public String saveUser(Semester s, RedirectAttributes ra){
+        service.save(s);
         ra.addFlashAttribute("message","The semester's information has been saved successfully.");
         return "redirect:/semesters";
     }

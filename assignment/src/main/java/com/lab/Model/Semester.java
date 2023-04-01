@@ -10,16 +10,18 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "semessters")
+@Table(name = "semesters")
 @Data
 public class Semester {
     @Id
-    @Column(name = "semester_id",length = 10)
+    @Column(name = "semester_id",length = 4)
     private String semesterId;
+    @Column(name = "name",length = 10)
+    private String name;
     @Column(name = "start_date")
     @JsonFormat(pattern = "YYYY-MM-DD")
     private LocalDate start;
     @Column(name = "end_date")
     @JsonFormat(pattern = "YYYY-MM-DD")
-    private   LocalDate end;
+    private LocalDate end;
 }

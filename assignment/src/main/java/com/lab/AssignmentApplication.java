@@ -14,15 +14,16 @@ import java.util.List;
 @SpringBootApplication
 @Controller
 public class AssignmentApplication {
-	@RequestMapping("/login")
+	@RequestMapping("/index")
 	public String index() {
-		return "login";
+		return "index";
 	}
 
 	@GetMapping("/login")
 	public String login(){
 		return "login";
 	}
+
 
 	@GetMapping("/register")
 	public String showRegistrationForm(Model model){

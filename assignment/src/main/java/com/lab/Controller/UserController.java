@@ -3,6 +3,7 @@ package com.lab.Controller;
 import com.lab.Model.Role;
 import com.lab.Model.User;
 import com.lab.Repositories.RoleRepository;
+import com.lab.Repositories.UserRoleRepository;
 import com.lab.Services.UserNotFoundEXxception;
 import com.lab.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,17 +34,12 @@ public class UserController {
     @GetMapping("/users/new")
     public String showNewForm(Model model){
         model.addAttribute("user",new User());
-        model.addAttribute("pageTitle","Add New User");
+//        model.addAttribute("pageTitle","Add New User");
         return "user_from";
     }
 
     @PostMapping("/users/save")
     public String saveUser(User user, RedirectAttributes ra){
-        Role role = roleRepository.findByName("ROLE_ADMIN");
-        if(role == null){
-            role = checkRoleExist();
-        }
-        user.setRoles(Arrays.asList(role));
        service.save(user);
        ra.addFlashAttribute("message","The user has been saved successfully.");
         return "redirect:/users";
@@ -54,7 +50,7 @@ public class UserController {
         try {
             User user = service.get(id);
             model.addAttribute("user", user);
-            model.addAttribute("pageTitle","Edit User (ID: "+id+")");
+//            model.addAttribute("pageTitle","Edit User (ID: "+id+")");
             return "user_from";
         } catch (UserNotFoundEXxception e) {
             ra.addFlashAttribute("message",e.getMessage());
@@ -65,11 +61,16 @@ public class UserController {
     @GetMapping("/users/delete/{id}")
     public String delete(@PathVariable("id") Integer id,RedirectAttributes ra) {
         try {
-        service.delete(id);
+            service.delete(id);
         ra.addFlashAttribute("message","The user ID "+id+" has been deleted");
         } catch (UserNotFoundEXxception e) {
             ra.addFlashAttribute("message",e.getMessage());
         }
+        return "redirect:/users";
+    }
+
+    @PostMapping("/login")
+    public String loginSuccess(){
         return "redirect:/users";
     }
 

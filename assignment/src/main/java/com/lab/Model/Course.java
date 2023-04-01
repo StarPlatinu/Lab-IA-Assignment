@@ -6,16 +6,18 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "courses")
-public  class Course {
+public class Course {
     @Id
-    @Column(name = "course_id",length = 20)
-    private String courseId;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "course_id", length = 20)
+    private String id;
+
+    @Column(name = "description", columnDefinition = "text")
+    private String description;
+
+    @Column(name = "credit")
+    private int credit;
+
+    @ManyToOne
     @JoinColumn(name = "curriculum_id")
     private Curriculum curriculum;
-    @Column(length = 2000)
-    private String description;
-    @Column
-    private Integer credit;
-
 }

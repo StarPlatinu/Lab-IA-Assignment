@@ -8,13 +8,13 @@ import lombok.Data;
 @Table(name = "curriculums")
 public class Curriculum {
     @Id
-    @Column(name = "curriculum_id",length = 20)
-private String curriculumId;
+    @Column(name = "curriculum_id", length = 20)
+    private String id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "major_id")
-private Major major;
-    @Column
-private String name;
+    private Major major;
 
+    @Column
+    private String name;
 }

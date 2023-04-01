@@ -10,13 +10,18 @@ public class Assessment {
     @Id
     @Column(name = "asessment_id")
     private int assessmentId;
-    @Column
-    private String assessmentName;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-     Course course;
+    private Course course;
+
+    @ManyToOne
+    @JoinColumn(name = "assessment_category_id")
+    private AssessmentCategory assessmentCategory;
+
+    @Column
+    private String assessmentName;
+
     @Column
     private int weight;
-
 }

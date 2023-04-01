@@ -14,12 +14,14 @@ import java.time.LocalDate;
 @Data
 public class Semester {
     @Id
-    @Column(name = "semester_id",length = 10)
-    private String semesterId;
+    @Column(name = "semester_id", length = 10)
+    private String id;
+
     @Column(name = "start_date")
     @JsonFormat(pattern = "YYYY-MM-DD")
     private LocalDate start;
+
     @Column(name = "end_date")
     @JsonFormat(pattern = "YYYY-MM-DD")
-    private   LocalDate end;
+    private LocalDate end;
 }

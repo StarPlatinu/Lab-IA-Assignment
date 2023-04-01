@@ -14,19 +14,24 @@ import java.time.LocalDate;
 @Table(name = "teachers")
 public class Teacher {
     @Id
-    @Column(name = "teacher_id",length = 20)
-    private String teacherId;
-    @Column
+    @Column(name = "teacher_id", length = 20)
+    private String id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "email")
     private String email;
-    @Column(length = 11)
+
+    @Column(name = "phone", length = 11)
     private String phone;
-    @Column
+    @Column(name = "address")
     private String address;
-    @Column
+
+    @Column(name = "birthdate")
     @JsonFormat(pattern = "YYYY-MM-DD")
     private LocalDate birthdate;
-    @Column(name = "pucture_url")
+
+    @Column(name = "picture_url")
     private String pictureUrl;
-
-
 }

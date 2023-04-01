@@ -8,14 +8,18 @@ import lombok.Data;
 @Data
 public class Grade {
     @Id
-    private int gradeId;
+    @ManyToOne
+    @JoinColumn(name = "enroll_id")
+    private Enroll enroll;
 
-    @Column
-    private int enroll_id;
-
-    @OneToOne
+    @Id
+    @ManyToOne
     @JoinColumn(name = "assessment_id")
     private Assessment assessment;
 
+    @Column(name = "value")
+    private int value;
 
+    @Column(name = "comment")
+    private String comment;
 }

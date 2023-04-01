@@ -24,7 +24,7 @@ public class AssessmentController {
         Assessment assessment = new Assessment();
         model.addAttribute("assessment", assessment);
         model.addAttribute("list",assessmentList);
-        return "majors";
+        return "assessments";
     }
 
     @PostMapping("/assessments/save")

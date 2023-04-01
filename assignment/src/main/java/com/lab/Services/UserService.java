@@ -4,6 +4,7 @@ import com.lab.Model.Role;
 import com.lab.Model.User;
 import com.lab.Repositories.RoleRepository;
 import com.lab.Repositories.UserRepository;
+import com.lab.Repositories.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,8 @@ import java.util.Optional;
 public class UserService {
 @Autowired private UserRepository repo;
   @Autowired  private RoleRepository roleRepository;
+
+    @Autowired  private UserRoleRepository userRoleRepository;
   //  private PasswordEncoder passwordEncoder;
 public List<User> listAll(){
     return (List<User>) repo.findAll();
@@ -23,7 +26,6 @@ public List<User> listAll(){
 
 
     public String save(User user) {
-
     repo.save(user);
     return "redirect:/users";
     }
@@ -40,6 +42,7 @@ public List<User> listAll(){
         if(count == null || count == 0){
             throw new UserNotFoundEXxception("Could not find any users with ID"+id);
         }
+        userRoleRepository.deleteById(id);
         repo.deleteById(id);
     }
 
@@ -55,10 +58,14 @@ public List<User> listAll(){
         return repo.findByEmail(email);
     }
 
-    private Role checkRoleExist(){
+    public Role checkRoleExist(){
         Role role = new Role();
-        role.setName("ROLE_ADMIN");
+        role.setName("ADMIN");
         return roleRepository.save(role);
+    }
+
+    public void deleteUserRole(int userId){
+      userRoleRepository.deleteById(userId);
     }
 
 

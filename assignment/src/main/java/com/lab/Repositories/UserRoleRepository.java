@@ -1,2 +1,7 @@
-package com.lab.Repositories;public interface UserRoleRepository {
+package com.lab.Repositories;
+
+import com.lab.Model.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRoleRepository extends JpaRepository<Role, Integer> {
 }

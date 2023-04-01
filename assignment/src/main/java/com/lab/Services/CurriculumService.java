@@ -1,8 +1,7 @@
 package com.lab.Services;
 
 import com.lab.Model.Curriculum;
-import com.lab.Model.Major;
-import com.lab.Repositories.MajorRepository;
+import com.lab.Repositories.CurriculumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,14 +10,14 @@ import java.util.List;
 @Service
 public class CurriculumService {
     @Autowired
-    private CurriculumService curriculumService;
+    private CurriculumRepository curriculumRepository;
 
     public List<Curriculum> getAllCurriculum(){
-        return  curriculumService.getAllCurriculum();
+        return (List<Curriculum>) curriculumRepository.findAll();
     }
 
     public String save(Curriculum curriculum) {
-        curriculumService.save(curriculum);
+        curriculumRepository.save(curriculum);
         return "redirect:/curriculums";
     }
 }

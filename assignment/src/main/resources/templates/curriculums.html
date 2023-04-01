@@ -44,9 +44,9 @@
             <input type="text" th:field="*{curriculumId}" class="form-control"  required maxlength="20"/>
           </div>
         </div>
-        <select class="form-control" id="dropDownList">
+        <select th:field="*{major}" class="form-control" id="dropDownList">
           <option value="0">select option</option>
-          <option th:each="major : ${majorList}" th:field="*{major}" th:value="${major.majorName}" th:text="${major.majorName}"></option>
+          <option th:each="major : ${listMajor}" th:field="*{major}" th:value="${major.majorName}" th:text="${major.majorName}"></option>
         </select>
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">Curriculum Name: </label>

@@ -34,7 +34,7 @@ public class StudentController {
     @PostMapping("/students/save")
     public String saveUser(Student student, RedirectAttributes ra){
         service.save(student);
-        ra.addFlashAttribute("message","The major has been saved successfully.");
+        ra.addFlashAttribute("message","The student has been saved successfully.");
         return "redirect:/students";
     }
 

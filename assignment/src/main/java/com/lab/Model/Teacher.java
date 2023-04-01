@@ -17,6 +17,8 @@ public class Teacher {
     @Column(name = "teacher_id",length = 20)
     private String teacherId;
     @Column
+    private String name;
+    @Column
     private String email;
     @Column(length = 11)
     private String phone;

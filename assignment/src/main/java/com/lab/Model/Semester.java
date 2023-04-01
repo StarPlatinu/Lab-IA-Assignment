@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class Semester {
     @Id
     @Column(name = "semester_id",length = 4)
-    private String semesterId;
+    private String id;
     @Column(name = "name",length = 10)
     private String name;
     @Column(name = "start_date")

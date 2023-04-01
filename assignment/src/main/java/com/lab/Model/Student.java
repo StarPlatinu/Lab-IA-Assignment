@@ -15,7 +15,7 @@ import java.util.List;
 public class Student {
     @Id
     @Column(name = "student_id", length = 20)
-    private String student_id;
+    private String id;
 
     @Column(name = "name")
     private String name;

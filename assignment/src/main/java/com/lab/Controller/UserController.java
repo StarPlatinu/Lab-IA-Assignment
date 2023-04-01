@@ -3,19 +3,16 @@ package com.lab.Controller;
 import com.lab.Model.Role;
 import com.lab.Model.User;
 import com.lab.Repositories.RoleRepository;
-import com.lab.Repositories.UserRoleRepository;
-import com.lab.Services.UserNotFoundEXxception;
+import com.lab.Services.UserNotFoundException;
 import com.lab.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -52,7 +49,7 @@ public class UserController {
             model.addAttribute("user", user);
 //            model.addAttribute("pageTitle","Edit User (ID: "+id+")");
             return "user_from";
-        } catch (UserNotFoundEXxception e) {
+        } catch (UserNotFoundException e) {
             ra.addFlashAttribute("message",e.getMessage());
             return "redirect:/users";
         }
@@ -63,7 +60,7 @@ public class UserController {
         try {
             service.delete(id);
         ra.addFlashAttribute("message","The user ID "+id+" has been deleted");
-        } catch (UserNotFoundEXxception e) {
+        } catch (UserNotFoundException e) {
             ra.addFlashAttribute("message",e.getMessage());
         }
         return "redirect:/users";

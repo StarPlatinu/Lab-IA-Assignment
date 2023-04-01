@@ -8,7 +8,6 @@ import com.lab.Repositories.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,29 +28,29 @@ public List<User> listAll(){
     repo.save(user);
     return "redirect:/users";
     }
-    public User get(Integer id) throws UserNotFoundEXxception {
+    public User get(Integer id) throws UserNotFoundException {
         Optional<User> result = repo.findById(id);
         if(result.isPresent()){
             return result.get();
         }
-        throw new UserNotFoundEXxception("Could not find any users with ID"+id);
+        throw new UserNotFoundException("Could not find any users with ID"+id);
     }
 
-    public void delete(Integer id) throws UserNotFoundEXxception {
+    public void delete(Integer id) throws UserNotFoundException {
         Long count = repo.countById(id);
         if(count == null || count == 0){
-            throw new UserNotFoundEXxception("Could not find any users with ID"+id);
+            throw new UserNotFoundException("Could not find any users with ID"+id);
         }
         userRoleRepository.deleteById(id);
         repo.deleteById(id);
     }
 
-    public User get(String email) throws UserNotFoundEXxception {
+    public User get(String email) throws UserNotFoundException {
         Optional<User> result = Optional.ofNullable(repo.findByEmail(email));
         if(result.isPresent()){
             return result.get();
         }
-        throw new UserNotFoundEXxception("Email doesn't exist.");
+        throw new UserNotFoundException("Email doesn't exist.");
     }
 
     public User findUserByEmail(String email) {
